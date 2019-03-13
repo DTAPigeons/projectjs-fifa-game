@@ -49,12 +49,3 @@ var CreatTableElement = function(type,text){
     element.innerText = text;
     return element;
 }
-
-var GroupDetailsClicked = function(name){
-    var today = new Date();
-    var dateText = today.getFullYear()+
-    '-'+(today.getMonth()+1)+'-'+today.getDate()+" "+
-    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    localStorage.actions+="At "+ dateText+ " the user was looking at details about " + name + "group"+" /n ";
-    localStorage.actions;
-}
