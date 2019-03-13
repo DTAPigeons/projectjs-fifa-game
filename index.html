@@ -7,22 +7,27 @@
     <title>Api reader</title>
 </head>
 <body>
-    <div style="margin:0px 0px 50px 50px;">
-        <h3>Search:</h3>
-        <form name="search" onsubmit="FilterMatchTable(); return false" method="post">
-            Venue:
-            <input type="text" name="venue">
-            Home Team:
-            <input type="text" name="home-team">
-            Guest Team:
-            <input type="text" name="guest-team">
-            Winner:
-            <input type="text" name="winner">
-            <input type="submit" value="Search">
-        </form>
+    <a href="index.html"><h1>Mathes</h1></a>
+    <div id="contents">
+            <div style="margin:0px 0px 50px 50px;">
+                    <h3>Search:</h3>
+                    <form name="search" onsubmit="FilterMatchTable(); return false" method="post">
+                        Venue:
+                        <input type="text" name="venue">
+                        Home Team:
+                        <input type="text" name="home-team">
+                        Guest Team:
+                        <input type="text" name="guest-team">
+                        Winner:
+                        <input type="text" name="winner">
+                        <input type="submit" value="Search">
+                    </form>
+                </div>
+                <div style="margin:0px 0px 0px 50px;" id="match-table"></div>
     </div>
-    <div style="margin:0px 0px 0px 50px;" id="match-table"></div>
 <script src="ajax-helper.js"></script>
+<script src="match-details.js"></script>
+<script src="county-details.js"></script>
 <script src="match-lister.js"></script>
 <script src="page-control.js"></script>            
 </body>

@@ -38,30 +38,37 @@ var CreatMatchTable = function(matches){
     matches.forEach(match => {
         var rowHeader = document.createElement('tr');
         var row = document.createElement('tr');
-        rowHeader.appendChild(CreatTableElementWithText('th',"Venue"));
-        rowHeader.appendChild(CreatTableElementWithText('th',"Home team"));
-        rowHeader.appendChild(CreatTableElementWithText('th',"Goals"));
-        rowHeader.appendChild(CreatTableElementWithText('th',"Penalties"));
-        rowHeader.appendChild(CreatTableElementWithText('th',"Guest team"));
-        rowHeader.appendChild(CreatTableElementWithText('th',"Goals"));
-        rowHeader.appendChild(CreatTableElementWithText('th',"Penalties"));
-        rowHeader.appendChild(CreatTableElementWithText('th',"Winner"));
-        row.appendChild(CreatTableElementWithText('td',match["venue"]));
-        row.appendChild(CreatTableElementWithText('td',match["home_team"]["country"]));
-        row.appendChild(CreatTableElementWithText('td',match["home_team"]["goals"]));
-        row.appendChild(CreatTableElementWithText('td',match["home_team"]["penalties"]));
-        row.appendChild(CreatTableElementWithText('td',match["away_team"]["country"]));
-        row.appendChild(CreatTableElementWithText('td',match["away_team"]["goals"]));
-        row.appendChild(CreatTableElementWithText('td',match["away_team"]["penalties"]));
+        rowHeader.appendChild(CreatTableElementWithText('th',"Venue",match));
+        rowHeader.appendChild(CreatTableElementWithText('th',"Home team",match));
+        rowHeader.appendChild(CreatTableElementWithText('th',"Goals",match));
+        rowHeader.appendChild(CreatTableElementWithText('th',"Penalties",match));
+        rowHeader.appendChild(CreatTableElementWithText('th',"Guest team",match));
+        rowHeader.appendChild(CreatTableElementWithText('th',"Goals",match));
+        rowHeader.appendChild(CreatTableElementWithText('th',"Penalties",match));
+        rowHeader.appendChild(CreatTableElementWithText('th',"Winner",match));
+        row.appendChild(CreatTableElementWithText('td',match["venue"],match));
+        row.appendChild(CreatTableElementWithText('td',match["home_team"]["country"],match,true));
+        row.appendChild(CreatTableElementWithText('td',match["home_team"]["goals"],match));
+        row.appendChild(CreatTableElementWithText('td',match["home_team"]["penalties"],match));
+        row.appendChild(CreatTableElementWithText('td',match["away_team"]["country"],match,true));
+        row.appendChild(CreatTableElementWithText('td',match["away_team"]["goals"],match));
+        row.appendChild(CreatTableElementWithText('td',match["away_team"]["penalties"],match));
         row.appendChild(CreatTableElementWithText('td',match["winner"]));
+        row.appendChild(CreatTableElementWithText("BUTTON","Details",match));
         table.appendChild(rowHeader);
         table.appendChild(row);
     });
     tableContainer.appendChild(table);
 }
 
-var CreatTableElementWithText = function(type,text){
+var CreatTableElementWithText = function(type,text,match,isCountyField =false){
     var element = document.createElement(type);
     element.innerText = text;
+    if(text=="Details"){
+        element.addEventListener("click",function(){DisplayMatchDetails(match);});
+    }
+    if(isCountyField){
+        element.addEventListener("click",function(){DisplayCountryDetails(text);});
+    }
     return element;
 }

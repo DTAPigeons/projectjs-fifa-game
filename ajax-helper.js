@@ -15,6 +15,7 @@ AjaxHelper.get = function(url,header,callback){
     request.open("GET",url);
     request.onload = () => {
         callback(JSON.parse(request.responseText));
+        console.log(request.status);
     }
     request.send();
 }
