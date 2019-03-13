@@ -61,7 +61,7 @@ var CreatMatchTable = function(matches){
     tableContainer.appendChild(table);
 }
 
-var CreatTableElementWithText = function(type,text,match,isCountyField =false){
+var CreatTableElementWithText = function(type,text,match=null,isCountyField =false){
     var element = document.createElement(type);
     element.innerText = text;
     if(text=="Details"){

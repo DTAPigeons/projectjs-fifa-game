@@ -26,6 +26,7 @@ var DisplayDetails = function(countries,name){
 
     var group = document.createElement('h2');
     group.innerText = "Group: " + country["group_letter"];
+    group.addEventListener("click",function(){ListGroupDetailsByName(country["group_letter"]);});
     contents.appendChild(group);
     contents.appendChild(document.createElement('br'));
 }
